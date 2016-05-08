@@ -9,7 +9,6 @@ function setupPage(projectName)
 
 function setupData()
 {
-	console.log("setting up data");
 	var behanceUserAPI = 'http://www.behance.net/v2/users/'+ userID +'/projects?callback=?&api_key='+ apiKey;
 	if(sessionStorage.getItem('behanceUser')) {
 	} else {
@@ -39,6 +38,37 @@ function setupProjectData(projects)
 
 function setupPageData(project)
 {
-	var projectData    = sessionStorage.getItem(project);
-	console.log()
+	var projectData = JSON.parse(sessionStorage.getItem(project));
+	
+	var projectTitle = document.getElementById('project-name');
+	projectTitle.innerHTML = projectData.name;
+	var imageCount = 0;
+	//Set up Modules
+	var modules = projectData['modules'];
+	for(var i = 0; i < modules.length; i++)
+	{
+		if(modules[i].type == 'text')
+		{
+			var descriptionText = document.getElementById('project-description');
+			descriptionText.innerHTML += modules[i].text;
+		} 
+		else if (modules[i].type == 'video' || modules[i].type == 'embed')
+		{
+			var embededVideo = document.getElementById('project-embeded-content');
+			embededVideo.innerHTML += modules[i].embed;
+		} 
+		else if (modules[i].type == 'image')
+		{
+			if(imageCount < 3)
+			{
+				var projectImage = document.getElementById('project-images');
+				projectImage.innerHTML += '<img src=' + modules[i].src + '>';
+				imageCount++;
+			}
+		}
+		else 
+		{
+			console.log('new modules type: ' + modules[i].type);
+		}
+	}
 }
