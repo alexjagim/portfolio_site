@@ -3,33 +3,12 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Portfolio Site</title>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.2/jquery.min.js"></script>
+	<script src="scripts/dataParse.js"></script>
+	<script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
 </head>
 <body>
 	<!-- Project Listed URL: https://www.behance.net/v2/users/alexjagim/projects?api_key=gTiIJMS3lFxmCtlrX4bmYAcoHwBaClvr -->
-
-	<script>
-
-	$(document).ready(function(){
-        $.addPanels('test/test_data.js');
-    });
-
-	(function($){
-        var readHTMLFile = function(url){
-            var toReturn;
-            $.ajax({
-                url: url,
-                async: false
-            }).done(function(data){
-                toReturn = data;
-            });
-            return toReturn;
-        };
-        $.addPanels = function(url){
-            fileContents = readHTMLFile(url);  
-        };
-     })(jQuery);
-	</script>
+	<script>setupPage('Sub Space')</script>
 
 
 	
