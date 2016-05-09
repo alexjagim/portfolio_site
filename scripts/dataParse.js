@@ -39,7 +39,11 @@ function setupProjectData(projects)
 function setupPageData(project)
 {
 	var projectData = JSON.parse(sessionStorage.getItem(project));
-	
+	//Set up Project Cover Image
+	var projectCoverImage = document.getElementById('project-cover-image');
+	projectCoverImage.innerHTML = '<img src=' + projectData.covers['404'] + '>';
+
+	//Set up Project Name
 	var projectTitle = document.getElementById('project-name');
 	projectTitle.innerHTML = projectData.name;
 	var imageCount = 0;
