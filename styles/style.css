@@ -1,0 +1,20 @@
+#content {
+	width: 80%;
+	margin: auto;
+}
+nav {
+	margin-top: 30px;
+	text-align: center;
+}
+nav a {
+	display: inline-block;
+	text-decoration: none;
+	padding-top: 30px;
+	height: 70px;
+	width: 100px;
+	background-image: url("http://static.indigoimages.ca/2015/shop/orange-paint-splatter.png");
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-position: 5px 0px;
+	margin: 0 20px;
+}
